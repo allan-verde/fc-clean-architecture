@@ -1,7 +1,7 @@
 import FindProductUseCase from "./find.product.usecase";
-import Product from "../../../domain/product/entity/product";
+import ProductFactory from "../../../domain/product/factory/product.factory";
 
-const product = new Product("123", "Product", 10);
+const product = ProductFactory.create("a", "Product", 10);
 
 const MockRepository = () => {
   return {
@@ -22,7 +22,7 @@ describe("Unit Test find product use case", () => {
     };
 
     const output = {
-      id: "123",
+      id: expect.any(String),
       name: "Product",
       price: 10
     };
